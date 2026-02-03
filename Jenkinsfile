@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Code') {
+        stage('Checkout Code') {
             steps {
-                echo 'Code already available'
+                echo 'Code checked out from GitHub'
             }
         }
 
@@ -14,10 +14,20 @@ pipeline {
             }
         }
 
-        stage('Run Container') {
+        stage('Run Docker Container') {
             steps {
                 sh 'docker run --rm cicd-demo'
             }
         }
     }
+
+    post {
+        success {
+            echo 'CI/CD pipeline completed successfully!'
+        }
+        failure {
+            echo 'CI/CD pipeline failed!'
+        }
+    }
 }
+
