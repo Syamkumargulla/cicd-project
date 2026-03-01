@@ -1,5 +1,7 @@
 #!/bin/bash
-echo "Hello from CI/CD Pipeline"
-echo "Syam kumar"
+echo "Hello from DevOps app running in Docker"
 
-
+while true
+do
+  sleep 60
+done
